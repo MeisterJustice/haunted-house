@@ -96,6 +96,14 @@ roof.rotation.y = Math.PI * 0.25;
 roof.position.y = 2.5 + 0.5;
 house.add(roof);
 
+// Bulb
+const bulb = new THREE.Mesh(
+  new THREE.ConeGeometry(0.2, 0.2, 3, 1, 1),
+  new THREE.MeshStandardMaterial({ color: "#b35f45", side: THREE.DoubleSide })
+);
+bulb.position.set(0, 2.4, 2);
+house.add(bulb);
+
 // Door
 const door = new THREE.Mesh(
   new THREE.PlaneGeometry(2.2, 2.2, 100, 100),
@@ -206,7 +214,7 @@ const moonLight = new THREE.DirectionalLight("#b9d5ff", 0.12);
 moonLight.castShadow = true;
 moonLight.shadow.mapSize.width = 256;
 moonLight.shadow.mapSize.height = 256;
-moonLight.shadow.camera.far = 15;
+moonLight.shadow.camera.far = 8;
 moonLight.position.set(4, 5, -2);
 gui.add(moonLight, "intensity").min(0).max(1).step(0.001);
 gui.add(moonLight.position, "x").min(-5).max(5).step(0.001);
@@ -221,7 +229,7 @@ doorLight.shadow.mapSize.width = 256;
 doorLight.shadow.mapSize.height = 256;
 doorLight.shadow.camera.far = 7;
 
-doorLight.position.set(0, 2.2, 2.7);
+doorLight.position.set(0, 2, 2.25);
 house.add(doorLight);
 
 /**
